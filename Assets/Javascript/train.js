@@ -55,11 +55,11 @@ database.ref().on("child_added", function(childSnapshot){
     var nextArrival = childSnapshot.val().arrival;
     var minutesAway = childSnapshot.val().far;
 
+    var trainInfo = moment.unix().format("");
 
 
 
 
-    
 });
 
 
