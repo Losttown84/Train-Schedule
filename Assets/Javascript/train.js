@@ -55,15 +55,22 @@ database.ref().on("child_added", function(childSnapshot){
     var nextArrival = childSnapshot.val().arrival;
     var minutesAway = childSnapshot.val().far;
 
-    var trainInfo = moment.unix().format("");
+    var trainInfo = moment().format();
 
+    var minAway = moment().diff()
+
+    var 
+
+    var newRow = $("<tr>").append(
+        $("<td>").text(trainName),
+        $("<td>").text(trainDestination),
+        $("<td>").text(trainFrequency),
+        $("<td>").text(nextArrival),
+        $("<td>").text(minutesAway),
+        $("<td>").text()
+
+    );
 
 
 
 });
-
-
-
-
-
-  };
