@@ -6,10 +6,18 @@ var config = {
     storageBucket: "train-schedule-65d79.appspot.com",
     messagingSenderId: "47200728348"
   };
-  firebase.initializeApp(config);
 
-  var database = firebase.database();
+firebase.initializeApp(config);
 
-  $(#"add-train-btn").on('click', function(event){
-      event.preventDefault()
+var database = firebase.database();
+
+$(#"add-train-btn").on('click', function(event){
+    event.preventDefault()
+
+var trainName = $("#train-name-input").val().trim();
+var destination = $("#destination-input").val().trim();
+var frequency = $("#frequency-input").val().trim();
+var nextArrival = $("#next-arrival-input").val().trim();
+var minutesAway = $("#minutes-away-input").val().trim();
+
   }
