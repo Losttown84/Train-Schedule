@@ -37,11 +37,33 @@ $("#add-train-btn").on('click', function(event){
     console.log(newTrain.arrival);
     console.log(newTrain.far);    
 
+    alert("You've added a new train");
+
+    $("#train-name-input").val("");
+    $("#destination-input").val("");
+    $("#frequency-input").val("");
+    $("#next-arrival-input").val("");
+    $("#minutes-away-input").val("");
+});
+
+database.ref().on("child_added", function(childSnapshot){
+    console.log(childSnapshot.val());
+
+    var trainName = childSnapshot.val().name;
+    var trainDestination = childSnapshot.val().destination;
+    var trainFrequency = childSnapshot.val().frequency;
+    var nextArrival = childSnapshot.val().arrival;
+    var minutesAway = childSnapshot.val().far;
 
 
 
 
 
+    
+});
 
 
-  }
+
+
+
+  };
