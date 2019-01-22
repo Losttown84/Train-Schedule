@@ -55,11 +55,15 @@ database.ref().on("child_added", function(childSnapshot){
     var nextArrival = childSnapshot.val().arrival;
     var minutesAway = childSnapshot.val().far;
 
-    var trainInfo = moment().format();
+    var startTime = moment(nextArrival, "hh:mm").subtract(1, "years");
 
-    var minAway = moment().diff()
+    var currentTime = moment();
 
-    var 
+    var timeDifference = moment().diff(moment(startTime), "minutes");
+
+    var timeRemainder = timeDifference % nextArrival;
+
+    var minutesUnilTrain = minutesAway - timeRemainder;
 
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
