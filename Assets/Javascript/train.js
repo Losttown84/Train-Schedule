@@ -37,7 +37,7 @@ $("#add-train-btn").on('click', function(event){
     console.log(newTrain.arrival);
     console.log(newTrain.far);    
 
-    alert("You've added a new train");
+    alert("New train added");
 
     $("#train-name-input").val("");
     $("#destination-input").val("");
@@ -61,9 +61,12 @@ database.ref().on("child_added", function(childSnapshot){
 
     var timeDifference = moment().diff(moment(startTime), "minutes");
 
-    var timeRemainder = timeDifference % nextArrival;
+    var timeRemainder = timeDifference % minutesAway;
 
     var minutesUnilTrain = minutesAway - timeRemainder;
+
+    var nextTrain = moment().add(minutesUnilTrain, "minutes");
+    var catchTrain = moment(nextTrain).format("HH:mm");
 
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
