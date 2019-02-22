@@ -77,6 +77,6 @@ database.ref().on("child_added", function(childSnapshot){
         $("<td>").text(),
         $("<td>").text()
     );
-
-    $("#train-table > tbody").append(newRow);
+    console.log("new row", newRow);
+    $("#tbody").append(newRow);
 });
